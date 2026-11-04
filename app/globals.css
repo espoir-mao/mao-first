@@ -1,0 +1,236 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  background-color: #ffffff;
+}
+
+body {
+  min-height: 100vh;
+}
+
+/* ---------------------------------------------------------------------------
+ * Dark mode
+ *
+ * The app shell (Header, Sidebar, and every page rendered inside it —
+ * sociétés, visas, profil, à propos, licence, contact, support…) was built
+ * with plain Tailwind utility classes baked into each component's className
+ * string (bg-white, text-neutral-900, text-[#2f3b26], …), not Tailwind's
+ * `dark:` variant. Rather than touching dozens of files to add a `dark:`
+ * twin of every color class, this block re-themes those same utility
+ * classes directly with plain CSS, scoped under the `.dark` class that
+ * ThemeProvider (components/ThemeProvider.tsx) toggles on <html>. Brand
+ * accents (the moss green buttons/links, e.g. bg-[#7a9a5a], and the muted
+ * secondary tones that already read fine on a dark surface) are
+ * intentionally left unchanged — only page/card backgrounds, borders, and
+ * near-black body text are remapped, which covers the great majority of the
+ * UI's surface. The login/sign-up pages don't use AppShell and have no
+ * toggle, so they keep their original fixed look either way.
+ * ------------------------------------------------------------------------ */
+
+.dark html,
+.dark body {
+  background-color: #12140d;
+}
+
+/* Page/card surfaces */
+.dark .bg-white {
+  background-color: #1b1f16;
+}
+.dark .bg-white\/85 {
+  background-color: rgb(27 31 22 / 0.85);
+}
+.dark .bg-neutral-50 {
+  background-color: #1f2418;
+}
+.dark .bg-neutral-100 {
+  background-color: #262c1d;
+}
+.dark .bg-neutral-200 {
+  background-color: #313822;
+}
+
+/* Neutral body text */
+.dark .text-neutral-300 {
+  color: #4b5342;
+}
+.dark .text-neutral-400 {
+  color: #8b9482;
+}
+.dark .text-neutral-500 {
+  color: #a4ad99;
+}
+.dark .text-neutral-600 {
+  color: #bac2ae;
+}
+.dark .text-neutral-700 {
+  color: #cdd3c5;
+}
+.dark .text-neutral-800 {
+  color: #e0e5d8;
+}
+.dark .text-neutral-900 {
+  color: #f3f5ef;
+}
+
+/* Borders / dividers / placeholders */
+.dark .border-neutral-100 {
+  border-color: #272c1f;
+}
+.dark .border-neutral-200 {
+  border-color: #313822;
+}
+.dark .border-neutral-300 {
+  border-color: #3c4429;
+}
+.dark .divide-neutral-100 > :not([hidden]) ~ :not([hidden]) {
+  border-color: #272c1f;
+}
+.dark .divide-neutral-200 > :not([hidden]) ~ :not([hidden]) {
+  border-color: #313822;
+}
+.dark .placeholder-neutral-400::placeholder {
+  color: #677060;
+}
+
+/* Status tints (badges, alert panels) */
+.dark .bg-spring-50 {
+  background-color: #1a2113;
+}
+.dark .bg-spring-100 {
+  background-color: #202a17;
+}
+.dark .bg-spring-200 {
+  background-color: #28341c;
+}
+.dark .bg-amber-50 {
+  background-color: #241d0e;
+}
+.dark .bg-amber-100 {
+  background-color: #352912;
+}
+.dark .text-amber-700 {
+  color: #e3b566;
+}
+.dark .text-amber-800 {
+  color: #f0c988;
+}
+.dark .border-amber-200 {
+  border-color: #4a3a1a;
+}
+.dark .border-amber-400 {
+  border-color: #8a6a28;
+}
+.dark .bg-emerald-50 {
+  background-color: #0f2219;
+}
+.dark .bg-emerald-100 {
+  background-color: #153a28;
+}
+.dark .bg-emerald-200 {
+  background-color: #1b4a33;
+}
+.dark .text-emerald-700 {
+  color: #5fcf9c;
+}
+.dark .text-emerald-800 {
+  color: #7fdbb1;
+}
+.dark .border-emerald-200 {
+  border-color: #1f4330;
+}
+.dark .border-emerald-300 {
+  border-color: #2a5a40;
+}
+.dark .bg-red-50 {
+  background-color: #2a1512;
+}
+.dark .bg-red-100 {
+  background-color: #3d1d18;
+}
+.dark .text-red-500 {
+  color: #f08b7e;
+}
+.dark .text-red-600 {
+  color: #f2a094;
+}
+.dark .text-red-700 {
+  color: #f5b3a8;
+}
+.dark .border-red-300 {
+  border-color: #552620;
+}
+
+/* Chrome-specific arbitrary colors (Header / Sidebar / cards built with
+   inline hex instead of the neutral-* scale) */
+.dark .border-\[\#e4e9dd\] {
+  border-color: #272c1f;
+}
+.dark .border-\[\#d7e0cc\] {
+  border-color: #313822;
+}
+.dark .bg-\[\#e4ecd8\],
+.dark .bg-\[\#eef4e4\],
+.dark .bg-\[\#eef5e2\],
+.dark .bg-\[\#f2f6ec\],
+.dark .bg-\[\#f4f0e6\],
+.dark .bg-\[\#f4f7ef\],
+.dark .bg-\[\#f8faf5\] {
+  background-color: #1f2a18;
+}
+.dark .text-\[\#2f3b26\],
+.dark .text-\[\#3f5029\],
+.dark .text-\[\#1f2a17\],
+.dark .text-\[\#2c3524\],
+.dark .text-\[\#4a5540\],
+.dark .text-\[\#242038\] {
+  color: #eef2e6;
+}
+.dark .text-\[\#4a5f34\],
+.dark .text-\[\#4f7a37\],
+.dark .text-\[\#5f7a45\] {
+  color: #8fc96a;
+}
+.dark .text-\[\#5b6356\] {
+  color: #b0b9a4;
+}
+
+/* Illustration panel gradient */
+.dark .from-spring-200 {
+  --tw-gradient-from: #1d2a14;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.dark .to-spring-300 {
+  --tw-gradient-to: #16200f;
+}
+
+/* ---------------------------------------------------------------------------
+ * Dashboard chart tokens (components/dashboard/*). Light + dark steps of the
+ * same hues, chosen for their own surface rather than auto-flipped.
+ * ------------------------------------------------------------------------ */
+:root {
+  --viz-1: #2a78d6; /* revenue / primary series */
+  --viz-2: #eb6834; /* expenses / second series */
+  --viz-good: #1baf7a;
+  --viz-warn: #eda100;
+  --viz-bad: #e34948;
+  --viz-neutral: #9aa58f;
+  --viz-grid: #e8ede1;
+  --viz-track: #e4e9dd;
+  --viz-label: #6b7566;
+  --viz-surface: #ffffff;
+}
+.dark {
+  --viz-1: #3987e5;
+  --viz-2: #d95926;
+  --viz-good: #199e70;
+  --viz-warn: #c98500;
+  --viz-bad: #e66767;
+  --viz-neutral: #7d8873;
+  --viz-grid: #2a3022;
+  --viz-track: #2a3022;
+  --viz-label: #a3ad98;
+  --viz-surface: #1b1f16;
+}

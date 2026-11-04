@@ -1,0 +1,11 @@
+/** e.g. "SUP-20261007-AB12CD" — mock support ticket reference, used for both
+ * the "Contacts" form and (alongside the société-specific
+ * generateLicenseTicketReference) the shared support inbox. */
+export function generateSupportTicketReference(): string {
+  const now = new Date();
+  const y = now.getFullYear();
+  const m = String(now.getMonth() + 1).padStart(2, "0");
+  const d = String(now.getDate()).padStart(2, "0");
+  const rand = Math.random().toString(36).slice(2, 8).toUpperCase();
+  return `SUP-${y}${m}${d}-${rand}`;
+}
